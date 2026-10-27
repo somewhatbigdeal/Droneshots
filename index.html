@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mike Reudink | Professional Drone Specialist & Aerial Imaging</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 1000;
+
+    background: rgba(5, 5, 5, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: #9cff00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #ccc;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #9cff00;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.85) 0%,
+            rgba(0,0,0,0.3) 45%,
+            rgba(0,0,0,0.95) 100%
+        );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 7vw 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-end;
+}
+
+.hero-text-block {
+    max-width: 700px;
+}
+
+.hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #9cff00;
+}
+
+.hero-kicker::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 2px;
+    background: #9cff00;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 120px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -5px;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff;
+}
+
+.hero-description {
+    max-width: 550px;
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    height: 50px;
+    padding: 0 25px;
+    border: 1px solid rgba(255,255,255,0.5);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.button.primary {
+    background: #9cff00;
+    color: #000000;
+    border-color: #9cff00;
+}
+
+.button.primary:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.hero-name-block {
+    text-align: right;
+    align-self: flex-end;
+    padding-bottom: 10px;
+}
+
+.hero-name-kicker {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 5px;
+}
+
+.hero-name {
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+
+/* Scroll indicator */
+
+.scroll-indicator {
+    position: absolute;
+    right: 5vw;
+    bottom: 45px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    writing-mode: vertical-rl;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 65px;
+    background: rgba(255,255,255,0.5);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    padding: 140px 7vw 130px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    background: #080808;
+}
+
+.section-number {
+    color: #9cff00;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.intro h2 {
+    margin-top: 20px;
+    font-size: clamp(38px, 5vw, 75px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+
+.intro-text {
+    max-width: 700px;
+    font-size: 21px;
+    line-height: 1.7;
+    color: #aaa;
+}
+
+.intro-text strong {
+    color: #fff;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background: #050505;
+}
+
+.stat {
+    padding: 55px 30px;
+    text-align: center;
+    border-right: 1px solid #333;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.stat-label {
+    margin-top: 8px;
+    color: #888;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio {
+    padding: 130px 5vw;
+    background: #050505;
+}
+
+.portfolio-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 55px;
+}
+
+.portfolio-heading h2 {
+    margin-top: 15px;
+    font-size: clamp(45px, 7vw, 95px);
+    line-height: 0.85;
+    letter-spacing: -5px;
+    text-transform: uppercase;
+}
+
+.portfolio-heading p {
+    max-width: 330px;
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   VIDEO GRID
+========================================================= */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 22px;
+}
+
+
+/* Individual cards */
+
+.video-card {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid #292929;
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        border 0.3s ease,
+        box-shadow 0.5s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    border-color: #9cff00;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.6),
+        0 0 25px rgba(156,255,0,0.08);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.video-card:hover video {
+    transform: scale(1.04);
+}
+
+
+/* Video title */
+
+.video-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 70px 25px 24px;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.95),
+            rgba(0,0,0,0)
+        );
+}
+
+.video-number {
+    margin-bottom: 7px;
+    color: #9cff00;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.video-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   CARD SIZING
+========================================================= */
+
+/* Castle - large */
+
+.card-castle {
+    grid-column: span 7;
+    aspect-ratio: 16 / 10;
+}
+
+
+/* Condos */
+
+.card-condos {
+    grid-column: span 5;
+    aspect-ratio: 16 / 11;
+}
+
+
+/* Costco */
+
+.card-costco {
+    grid-column: span 5;
+    aspect-ratio: 16 / 11;
+}
+
+
+/* Kona - large */
+
+.card-kona {
+    grid-column: span 7;
+    aspect-ratio: 16 / 10;
+}
+
+
+/* Night boats */
+
+.card-night {
+    grid-column: span 4;
+    aspect-ratio: 4 / 5;
+}
+
+
+/* Pool - large */
+
+.card-pool {
+    grid-column: span 8;
+    aspect-ratio: 16 / 10;
+}
+
+
+/* Sunset */
+
+.card-sunset {
+    grid-column: span 6;
+    aspect-ratio: 16 / 10;
+}
+
+
+/* Texas */
+
+.card-texas {
+    grid-column: span 6;
+    aspect-ratio: 16 / 10;
+}
+
+
+/* =========================================================
+   FEATURED PROMO
+========================================================= */
+
+.featured {
+    margin-bottom: 100px;
+}
+
+.featured-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+    border: 1px solid #333;
+    background: #000;
+}
+
+.featured-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-label {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 9px 13px;
+    background: #9cff00;
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.featured-caption {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+
+.featured-caption h3 {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.featured-caption p {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    padding: 150px 7vw;
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(156,255,0,0.06),
+            transparent 30%
+        ),
+        #090909;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.about h2 {
+    margin-top: 20px;
+    font-size: clamp(45px, 6vw, 85px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    text-transform: uppercase;
+}
+
+.about-copy {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.about-copy p + p {
+    margin-top: 25px;
+}
+
+/* Specialties list */
+
+.specialties-list {
+    margin-top: 40px;
+    list-style: none;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.specialties-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.specialties-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #9cff00;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #333;
+}
+
+.service {
+    padding: 25px 0;
+    border-bottom: 1px solid #333;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ddd;
+}
+
+.service:nth-child(odd) {
+    margin-right: 30px;
+}
+
+.service span {
+    color: #9cff00;
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    position: relative;
+    padding: 170px 7vw;
+    text-align: center;
+    background: #9cff00;
+    color: #000;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: "DRONE";
+    position: absolute;
+    left: -30px;
+    bottom: -70px;
+    font-size: 22vw;
+    font-weight: 900;
+    color: rgba(0,0,0,0.05);
+    line-height: 1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+}
+
+.contact .section-number {
+    color: #000;
+}
+
+.contact h2 {
+    margin-top: 20px;
+    font-size: clamp(50px, 8vw, 120px);
+    line-height: 0.85;
+    letter-spacing: -6px;
+    text-transform: uppercase;
+}
+
+.contact p {
+    max-width: 600px;
+    margin: 35px auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    padding: 0 35px;
+    background: #000;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-4px);
+    background: #222;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 5vw;
+    background: #050505;
+    color: #666;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    color: #fff;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        padding: 0 25px 60px;
+        gap: 40px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero-name-block {
+        text-align: left;
+        padding-bottom: 0;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-castle,
+    .card-kona,
+    .card-pool {
+        grid-column: span 2;
+    }
+
+    .card-condos,
+    .card-costco,
+    .card-night,
+    .card-sunset,
+    .card-texas {
+        grid-column: span 1;
+    }
+
+    .featured-video {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .intro {
+        padding: 90px 25px;
+    }
+
+    .intro-text {
+        font-size: 17px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+
+    .stat:last-child {
+        border-bottom: none;
+    }
+
+    .portfolio {
+        padding: 90px 20px;
+    }
+
+    .portfolio-heading {
+        display: block;
+    }
+
+    .portfolio-heading p {
+        margin-top: 25px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-castle,
+    .card-condos,
+    .card-costco,
+    .card-kona,
+    .card-night,
+    .card-pool,
+    .card-sunset,
+    .card-texas {
+        grid-column: span 1;
+        aspect-ratio: 16 / 10;
+    }
+
+    .featured-caption {
+        display: block;
+    }
+
+    .featured-caption p {
+        margin-top: 10px;
+    }
+
+    .about {
+        padding: 100px 25px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .service:nth-child(odd) {
+        margin-right: 0;
+    }
+
+    .contact {
+        padding: 110px 25px;
+    }
+
+    .contact h2 {
+        letter-spacing: -3px;
+    }
+
+    footer {
+        display: block;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 12px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     NAVIGATION
+======================================================= -->
+
+<nav class="navbar">
+
+    <a href="#top" class="logo">
+        DRONE<span>.</span>
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#work">Work</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+
+<section class="hero" id="top">
+
+    <div class="hero-video-container">
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto">
+
+            <source src="Videos/Promo.mp4" type="video/mp4">
+
+        </video>
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-text-block">
+            <div class="hero-kicker">
+                Aerial Photography &amp; Videography
+            </div>
+
+            <h1>
+                SEE<br>
+                THE<br>
+                DIFFERENCE.
+            </h1>
+
+            <p class="hero-description">
+                Cinematic aerial imagery that gives properties,
+                businesses, landscapes and destinations a completely
+                different perspective.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#work" class="button primary">
+                    Explore the Work
+                </a>
+
+                <a href="#contact" class="button">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+
+        <div class="hero-name-block">
+            <div class="hero-name-kicker">
+                Videography by
+            </div>
+            <div class="hero-name">
+                Mike Reudink
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     INTRO
+======================================================= -->
+
+<section class="intro">
+
+    <div>
+
+        <div class="section-number">
+            01 / THE APPROACH
+        </div>
+
+        <h2>
+            ABOVE<br>
+            THE<br>
+            ORDINARY.
+        </h2>
+
+    </div>
+
+
+    <div class="intro-text">
+
+        <p>
+            <strong>Aerial photography changes the way people see a place.</strong>
+        </p>
+
+        <br>
+
+        <p>
+            From real estate and commercial properties to
+            landscapes, resorts and everything in between,
+            the right aerial shot can tell a story that
+            ground-level photography simply cannot.
+        </p>
+
+        <br>
+
+        <p>
+            This portfolio is a collection of aerial work
+            captured from a different perspective.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     STATS
+======================================================= -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <div class="stat-number">
+            09
+        </div>
+
+        <div class="stat-label">
+            Featured Videos
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            4K
+        </div>
+
+        <div class="stat-label">
+            Aerial Imaging
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            ∞
+        </div>
+
+        <div class="stat-label">
+            Perspectives
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     PORTFOLIO
+======================================================= -->
+
+<section class="portfolio" id="work">
+
+
+    <div class="portfolio-heading">
+
+        <div>
+
+            <div class="section-number">
+                02 / SELECTED WORK
+            </div>
+
+            <h2>
+                THE<br>
+                WORK.
+            </h2>
+
+        </div>
+
+
+        <p>
+            A selection of aerial photography and
+            videography projects captured from above.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+               FEATURED PROMO
+        =================================================== -->
+
+    <div class="featured">
+
+        <div class="featured-video">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Promo.mp4"
+                    type="video/mp4">
+
+                Your browser does not support HTML5 video.
+
+            </video>
+
+
+            <div class="featured-label">
+                Featured Film
+            </div>
+
+        </div>
+
+
+        <div class="featured-caption">
+
+            <h3>
+                Promo Reel
+            </h3>
+
+            <p>
+                Aerial / Cinematic / Portfolio
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+               VIDEO GRID
+        =================================================== -->
+
+    <div class="video-grid">
+
+
+        <!-- CASTLE -->
+
+        <article class="video-card card-castle">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Castle%20Video.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    01 / AERIAL
+                </div>
+
+                <div class="video-title">
+                    Castle Video
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CONDOS -->
+
+        <article class="video-card card-condos">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/condos.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    02 / PROPERTY
+                </div>
+
+                <div class="video-title">
+                    Condos
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- COSTCO -->
+
+        <article class="video-card card-costco">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Costco%20Round.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    03 / COMMERCIAL
+                </div>
+
+                <div class="video-title">
+                    Costco Round
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- KONA -->
+
+        <article class="video-card card-kona">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Day%20to%20night%20Kona.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    04 / DESTINATION
+                </div>
+
+                <div class="video-title">
+                    Day to Night — Kona
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NIGHT BOATS -->
+
+        <article class="video-card card-night">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Nighboats.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    05 / NIGHT
+                </div>
+
+                <div class="video-title">
+                    Night Boats
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- POOL -->
+
+        <article class="video-card card-pool">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Pool%201.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    06 / RESORT
+                </div>
+
+                <div class="video-title">
+                    Pool
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- SUNSET -->
+
+        <article class="video-card card-sunset">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/boat.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    07 / SUNSET
+                </div>
+
+                <div class="video-title">
+                    Sunset Boat
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- TEXAS TIRE -->
+
+        <article class="video-card card-texas">
+
+            <video
+                controls
+                preload="metadata">
+
+                <source
+                    src="Videos/Texas%20tire%20dock.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <div class="video-info">
+
+                <div class="video-number">
+                    08 / INDUSTRIAL
+                </div>
+
+                <div class="video-title">
+                    Texas Tire Dock
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     ABOUT
+======================================================= -->
+
+<section class="about" id="about">
+
+    <div class="about-grid">
+
+
+        <div>
+
+            <div class="section-number">
+                03 / ABOUT
+            </div>
+
+            <h2>
+                A DIFFERENT<br>
+                POINT OF<br>
+                VIEW.
+            </h2>
+
+        </div>
+
+
+        <div class="about-copy">
+
+            <p>
+                <strong>Professional Drone Specialist &amp; Aerial Imaging</strong>
+            </p>
+            <p>
+                An experienced drone specialist with a background in catastrophe (CAT) insurance adjusting, international disaster response, and hurricane-related property damage assessments with Young &amp; Associates. Specializing in aerial asset documentation, construction process analysis, orthomosaic mapping, thermal infrared imaging, and drone-based roof estimating for EagleView.
+            </p>
+
+            <p>
+                Combining extensive construction industry knowledge with advanced aerial imaging capabilities to deliver accurate, detailed, and actionable property intelligence. Experienced in documenting storm damage, assessing building conditions, capturing high-resolution aerial imagery, and supporting insurance claims through comprehensive visual data collection.
+            </p>
+
+            <p>
+                FAA Part 107 Remote Pilot Certified, with a strong understanding of construction methods, property assessment, and the practical application of drone technology in insurance, restoration, and construction environments.
+            </p>
+
+            <ul class="specialties-list">
+                <li>Catastrophe (CAT) insurance adjusting and hurricane response</li>
+                <li>International disaster and property damage assessments</li>
+                <li>Drone-based roof measurements and estimating for EagleView</li>
+                <li>Orthomosaic mapping and aerial site documentation</li>
+                <li>Thermal infrared imaging</li>
+                <li>Construction process monitoring and analysis</li>
+                <li>Asset assessment, documentation, and condition reporting</li>
+            </ul>
+
+
+            <div class="services">
+
+                <div class="service">
+                    <span>01</span>
+                    Aerial Photography
+                </div>
+
+                <div class="service">
+                    <span>02</span>
+                    Drone Videography
+                </div>
+
+                <div class="service">
+                    <span>03</span>
+                    Real Estate
+                </div>
+
+                <div class="service">
+                    <span>04</span>
+                    Commercial
+                </div>
+
+                <div class="service">
+                    <span>05</span>
+                    Landscapes
+                </div>
+
+                <div class="service">
+                    <span>06</span>
+                    Cinematic Video
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     CONTACT
+======================================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-content">
+
+        <div class="section-number">
+            04 / CONTACT
+        </div>
+
+        <h2>
+            LET'S<br>
+            CREATE.
+        </h2>
+
+        <p>
+            Have a property, business, project or location
+            that deserves to be seen from a different
+            perspective?
+        </p>
+
+
+        <a
+            href="mailto:your-email@example.com"
+            class="contact-button">
+
+            Start a Conversation
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        DRONE.
+    </div>
+
+    <div>
+        AERIAL PHOTOGRAPHY &amp; VIDEOGRAPHY
+    </div>
+
+    <div>
+        © 2026
+    </div>
+
+</footer>
+
+
+</body>
+</html>
